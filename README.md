@@ -1,6 +1,9 @@
 # Basic Activity Booking App
 
-A RESTful API for booking various activities like cricket matches, movies, and football tournaments. Built with Node.js, Express.js, and MongoDB.
+A RESTful API for booking various activities like cricket matches, movies and football tournaments. Built with Node.js, Express.js and MongoDB.
+
+## GitHub Repository
+[View on GitHub](https://github.com/ravitejaakella3/basic-activity-booking-app)
 
 ## Features
 
@@ -22,7 +25,7 @@ A RESTful API for booking various activities like cricket matches, movies, and f
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/ravitejaakella3/basic-activity-booking-app.git
 cd basic-activity-booking-app
 ```
 
@@ -34,8 +37,8 @@ npm install
 3. Create a `.env` file in the root directory with the following variables:
 ```env
 PORT=5555
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
+MONGODB_URI=mongodb://localhost:27017/activity-booking
+JWT_SECRET=your_jwt_secret
 ```
 
 4. Start the server:
@@ -155,6 +158,9 @@ You can test the API using tools like Postman or curl. Here's a basic flow:
 4. List activities
 5. Book an activity
 6. View your bookings
+
+## Postman Collection
+A Postman collection is included in the repository (`booking_activity.postman_collection.json`) for testing the API endpoints.
 
 ## Contributing
 
