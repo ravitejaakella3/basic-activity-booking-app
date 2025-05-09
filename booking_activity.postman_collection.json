@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "b088e590-ff49-4cf9-ae31-44e34bcec166",
+		"name": "booking_activity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38926869"
+	},
+	"item": [
+		{
+			"name": "user register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"phone\": \"1234567890\",\r\n  \"password\": \"password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5555/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"phone\": \"1234567890\",\r\n  \"password\": \"password123\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5555/api/auth/register"
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"header": [],
+					"body": "{\n    \"message\": \"User registered successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"john.doe@example.com\",\r\n  \"password\": \"password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5555/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"john.doe@example.com\",\r\n  \"password\": \"password123\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5555/api/auth/login"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"header": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MWRkNDYyNDc0N2NkMzM1NDE3NDZkMiIsImlhdCI6MTc0Njc4NjMzMywiZXhwIjoxNzQ2Nzg5OTMzfQ.ikKrDsM6TRRo7gPxxhV26T7AWWyisbE8_pfeVHw1g4I\"\n}"
+				}
+			]
+		},
+		{
+			"name": "activities list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5555/api/activities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"api",
+						"activities"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5555/api/activities"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"header": [],
+					"body": "[\n    {\n        \"_id\": \"681dafafe80dfe2f181a9eec\",\n        \"title\": \"Cricket Match\",\n        \"description\": \"Weekend cricket match at the local ground\",\n        \"location\": \"Central Park Cricket Ground\",\n        \"date\": \"2024-03-30\",\n        \"time\": \"10:00 AM\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"681dafafe80dfe2f181a9eed\",\n        \"title\": \"Movie Night\",\n        \"description\": \"Latest blockbuster movie screening\",\n        \"location\": \"City Cinema Hall\",\n        \"date\": \"2024-03-28\",\n        \"time\": \"7:00 PM\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"681dafafe80dfe2f181a9eee\",\n        \"title\": \"Football Tournament\",\n        \"description\": \"5-a-side football tournament\",\n        \"location\": \"Sports Complex\",\n        \"date\": \"2024-04-01\",\n        \"time\": \"4:00 PM\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "activities selection",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MWRkNDYyNDc0N2NkMzM1NDE3NDZkMiIsImlhdCI6MTc0Njc4NjMzMywiZXhwIjoxNzQ2Nzg5OTMzfQ.ikKrDsM6TRRo7gPxxhV26T7AWWyisbE8_pfeVHw1g4I",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5555/api/bookings/book/681dafafe80dfe2f181a9eec",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"api",
+						"bookings",
+						"book",
+						"681dafafe80dfe2f181a9eec"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MWRkNDYyNDc0N2NkMzM1NDE3NDZkMiIsImlhdCI6MTc0Njc4NjMzMywiZXhwIjoxNzQ2Nzg5OTMzfQ.ikKrDsM6TRRo7gPxxhV26T7AWWyisbE8_pfeVHw1g4I"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5555/api/bookings/book/681dafafe80dfe2f181a9eec"
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"header": [],
+					"body": "{\n    \"message\": \"Activity booked successfully\",\n    \"booking\": {\n        \"_id\": \"681dd8858bf2d5615c357569\",\n        \"user\": {\n            \"_id\": \"681dd4624747cd33541746d2\",\n            \"name\": \"John Doe\",\n            \"email\": \"john.doe@example.com\"\n        },\n        \"activity\": {\n            \"_id\": \"681dafafe80dfe2f181a9eec\",\n            \"title\": \"Cricket Match\",\n            \"description\": \"Weekend cricket match at the local ground\",\n            \"location\": \"Central Park Cricket Ground\",\n            \"date\": \"2024-03-30\",\n            \"time\": \"10:00 AM\",\n            \"__v\": 0\n        },\n        \"bookingDate\": \"2025-05-09T10:27:17.966Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "get register activities",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MWRhZWI2NzRlMjZhNmFjNDgxYjlmNiIsImlhdCI6MTc0Njc3NjMxMiwiZXhwIjoxNzQ2Nzc5OTEyfQ.2o5kM7vRaxjW7PV37FhdTb9pUNRe-bAQv4ZRGoow8y0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5555/api/bookings/my-bookings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"api",
+						"bookings",
+						"my-bookings"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MWRhZWI2NzRlMjZhNmFjNDgxYjlmNiIsImlhdCI6MTc0Njc3NjMxMiwiZXhwIjoxNzQ2Nzc5OTEyfQ.2o5kM7vRaxjW7PV37FhdTb9pUNRe-bAQv4ZRGoow8y0"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5555/api/bookings/my-bookings"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"header": [],
+					"body": "[\n    {\n        \"_id\": \"681dd8858bf2d5615c357569\",\n        \"user\": \"681dd4624747cd33541746d2\",\n        \"activity\": {\n            \"_id\": \"681dafafe80dfe2f181a9eec\",\n            \"title\": \"Cricket Match\",\n            \"description\": \"Weekend cricket match at the local ground\",\n            \"location\": \"Central Park Cricket Ground\",\n            \"date\": \"2024-03-30\",\n            \"time\": \"10:00 AM\",\n            \"__v\": 0\n        },\n        \"bookingDate\": \"2025-05-09T10:27:17.966Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		}
+	]
+}
